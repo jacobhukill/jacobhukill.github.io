@@ -61,43 +61,55 @@
 				/* Email under the photo */
 				.under-photo-contact .email{ color:var(--nd-gold); }
 				
-				/* --- Floating Contact Pill --- */
-				/* Wrapper is fixed to viewport; we’ll nudge it with JS when Chrome changes the visual viewport */
-				.contact-pill{
-				  position:fixed;
-				  right:18px;
-				  bottom:18px;
-				  z-index:2147483647;
-				  pointer-events:none;            /* anchor receives clicks */
-				  transform:translateZ(0);        /* own layer; smoother + avoids glitches */
-				}
-				.contact-pill a{
-				  pointer-events:auto;
-				  display:inline-flex;
-				  align-items:center;
-				  justify-content:center;
-				  padding:0.7rem 1rem;
-				  border-radius:999px;
-				  background:var(--nd-blue);
-				  color:var(--nd-gold) !important;
-				  font-weight:700;
-				  text-decoration:none;
-				  box-shadow:0 10px 20px rgba(0,0,0,.12);
-				  transition:background .15s ease,color .15s ease,transform .15s ease;
-				  -webkit-tap-highlight-color:transparent;
-				}
-				.contact-pill a:hover,
-				.contact-pill a:focus,
-				.contact-pill a:active{
-				  background:var(--nd-blue-dark) !important;
-				  color:var(--nd-gold-light) !important;
-				  transform:translateY(-1px);
-				}
-				
-				/* iPhone safe-area */
-				@supports(padding-bottom: env(safe-area-inset-bottom)){
-				  .contact-pill{ bottom:calc(18px + env(safe-area-inset-bottom)); }
-				}
+							/* --- Floating Contact Pill --- */
+							/* Full-viewport overlay that follows the dynamic viewport (fixes Chrome/Safari bottom bugs) */
+			.overlay-root{
+			  position: fixed;
+			  inset: 0;
+			  height: 100dvh;              /* track the visible viewport */
+			  pointer-events: none;        /* only the pill is clickable */
+			  z-index: 2147483647;
+			}
+			
+			/* Fallback if 100dvh isn’t supported */
+			@supports not (height: 100dvh){
+			  .overlay-root{ height: 100vh; }
+			}
+			
+			/* The pill itself (entire shape is clickable) */
+			.contact-pill{
+			  position: absolute;
+			  right: 18px;
+			  bottom: 18px;
+			  pointer-events: auto;
+			  display: inline-flex;
+			  align-items: center;
+			  justify-content: center;
+			  padding: 0.7rem 1rem;
+			  border-radius: 999px;
+			  background: var(--nd-blue);
+			  color: var(--nd-gold) !important;
+			  font-weight: 700;
+			  text-decoration: none;
+			  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+			  transition: background .15s ease, color .15s ease, transform .15s ease;
+			  -webkit-tap-highlight-color: transparent;
+			}
+			
+			/* Hover/active/focus */
+			.contact-pill:hover,
+			.contact-pill:focus,
+			.contact-pill:active{
+			  background: var(--nd-blue-dark) !important;
+			  color: var(--nd-gold-light) !important;
+			  transform: translateY(-1px);
+			}
+			
+			/* Respect iPhone safe area */
+			@supports (padding-bottom: env(safe-area-inset-bottom)){
+			  .contact-pill{ bottom: calc(18px + env(safe-area-inset-bottom)); }
+			}
+
 				
 				/* --- Nav Bar Colors --- */
 				#nav{ background:var(--nd-blue); }
@@ -213,9 +225,9 @@
       </div>
     </article>
 
-	  <!-- Sticky contact pill (moved to very end for reliability) -->
-	<div class="contact-pill">
-	  <a href="mailto:jhukill@nd.edu">Email Jacob</a>
+		<!-- Floating contact pill overlay -->
+	<div class="overlay-root">
+	  <a class="contact-pill" href="mailto:jhukill@nd.edu">Email Jacob</a>
 	</div>
 
     <!-- Scripts -->
