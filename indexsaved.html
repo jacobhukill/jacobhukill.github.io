@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Jacob Hukill</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <style>
+						  /* --- Layout tweaks --- */
+				#research p { text-align: left; }
+				#research header { margin-bottom: 0.5em; }
+				#research header + p { margin-top: 0.25em; }
+				
+				.image.fit { display: block; position: relative; }
+				
+				.under-photo-contact {
+				  margin-top: 0.75rem;
+				  text-align: center;
+				}
+				.under-photo-contact .email {
+				  display: block;
+				  font-weight: 600;
+				  margin-bottom: 0.5rem;
+				}
+				
+				/* Ensure clean stacking & spacing on small screens */
+				@media screen and (max-width: 736px) {
+				  #top .image.fit { margin-bottom: 10rem; }
+				}
+				
+				/* --- ND Color Theme --- */
+				:root{
+				  --nd-blue:#0c2340;
+				  --nd-blue-dark:#0a1b32;   /* hover */
+				  --nd-gold:#ae9142;
+				  --nd-gold-light:#d4b66d;  /* hover */
+				}
+				
+				/* Button under the photo */
+				.under-photo-contact .btn{
+				  display:inline-block;
+				  border-radius:999px;
+				  padding:0.4rem 0.8rem;
+				  text-decoration:none;
+				  background:var(--nd-blue);
+				  color:var(--nd-gold);
+				  border:none;
+				  font-weight:700;
+				}
+				.under-photo-contact .btn:hover{
+				  background:var(--nd-blue-dark);
+				  color:var(--nd-gold-light);
+				}
+				
+				/* Email under the photo */
+				.under-photo-contact .email{ color:var(--nd-gold); }
+				
+				/* --- Floating Contact Pill --- */
+				/* Wrapper is fixed to viewport; we’ll nudge it with JS when Chrome changes the visual viewport */
+				.contact-pill{
+				  position:fixed;
+				  right:18px;
+				  bottom:18px;
+				  z-index:2147483647;
+				  pointer-events:none;            /* anchor receives clicks */
+				  transform:translateZ(0);        /* own layer; smoother + avoids glitches */
+				}
+				.contact-pill a{
+				  pointer-events:auto;
+				  display:inline-flex;
+				  align-items:center;
+				  justify-content:center;
+				  padding:0.7rem 1rem;
+				  border-radius:999px;
+				  background:var(--nd-blue);
+				  color:var(--nd-gold) !important;
+				  font-weight:700;
+				  text-decoration:none;
+				  box-shadow:0 10px 20px rgba(0,0,0,.12);
+				  transition:background .15s ease,color .15s ease,transform .15s ease;
+				  -webkit-tap-highlight-color:transparent;
+				}
+				.contact-pill a:hover,
+				.contact-pill a:focus,
+				.contact-pill a:active{
+				  background:var(--nd-blue-dark) !important;
+				  color:var(--nd-gold-light) !important;
+				  transform:translateY(-1px);
+				}
+				
+				/* iPhone safe-area */
+				@supports(padding-bottom: env(safe-area-inset-bottom)){
+				  .contact-pill{ bottom:calc(18px + env(safe-area-inset-bottom)); }
+				}
+				
+				/* --- Nav Bar Colors --- */
+				#nav{ background:var(--nd-blue); }
+				#nav ul li a{
+				  color:var(--nd-gold);
+				  font-weight:600;
+				  text-decoration:none;
+				}
+				#nav ul li a:hover{ color:var(--nd-gold-light); }
+				
+				/* --- Force content links to ND Gold --- */
+				.wrapper a,
+				.wrapper p a,
+				.wrapper header a{
+				  color:var(--nd-gold) !important;
+				  text-decoration:underline;
+				}
+				.wrapper a:hover,
+				.wrapper p a:hover,
+				.wrapper header a:hover{
+				  color:var(--nd-gold-light) !important;
+				}
+
+
+		
+    </style>
+  </head>
+  <body class="is-preload">
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul class="container">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#contact">Contact</a></li>
+		 <li><a href="Hukill_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+    </nav>
+
+
+    <!-- Home / Hero -->
+    <article id="top" class="wrapper style1">
+      <div class="container">
+        <div class="row">
+  		   <div class="col-4 col-5-large col-12-medium col-12-small">
+            <div class="image fit">
+              <img src="images/DSC_7941.jpg" alt="Portrait of Jacob Hukill" />
+              <div class="under-photo-contact">
+                <a class="email" href="mailto:jhukill@nd.edu">jhukill@nd.edu</a>
+                <a class="btn" href="#contact">Full Contact Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-8 col-7-large col-12-medium  col-12-small">
+            <header>
+              <h1><strong>Jacob Hukill</strong></h1>
+              <h4>Macroeconomist</h4>
+              <p>
+                I am a PhD candidate at the University of Notre Dame. I am a macroeconomist with interests in household finance
+                and the economics of education. My research involves the financing of higher education. Please reach out with any inquiries.
+              </p>
+              <p style="margin-bottom: 28px;"></p>
+              <p>
+                I am on the 2025/2026 job market. You can find
+                <a href="Hukill_CV.pdf" target="_blank" rel="noopener">my CV here</a>.
+              </p>
+            </header>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Research -->
+    <article id="research" class="wrapper style1">
+      <div class="container">
+        <header>
+          <h2>Job Market Paper</h2>
+          <p><strong>“Financing Human Capital Acquisition With Student Debt” (Coming Soon)</strong></p>
+        </header>
+        <p>
+          I develop a life-cycle model of educational attainment, major choice, and student debt repayment to study how the structure and availability of student debt repayment plans impact human capital acquisition and the welfare of individuals. I first examine how the current system of income-driven repayment shapes both the decision to pursue college and the choice of major. I then evaluate the new Repayment Assistance Plan, comparing its effects on enrollment, major selection, repayment behavior, and welfare relative to the existing system.
+        </p>
+
+        <header>
+          <h2>Working Papers</h2>
+          <p><strong>“The Marginal Propensity to Consume Out of Student Debt Relief” (2025)</strong></p>
+        </header>
+        <p>
+          <strong>Abstract:</strong> I calculate the marginal propensity to consume student debt relief in
+          a quantitative precautionary savings model. The fiscal expense of debt forgiveness is large and
+          immediate, while the benefits free resources from recurring future debt payments, which reduces
+          stimulus effects. In response to a one time transfer, the MPC is about 1.5 times higher when
+          targeting indebted households rather than targeting all households. The MPCs of debt relief are
+          less than one third that of one time cash transfers, and less than one fifth that of cash
+          transfers to indebted individuals.
+        </p>
+      </div>
+    </article>
+
+    <!-- Contact -->
+    <article id="contact" class="wrapper style3">
+      <div class="container">
+        <header>
+          <h2>Contact Information</h2>
+        </header>
+        <div class="contact-info">
+          jhukill@nd.edu<br>
+          University of Notre Dame<br>
+          Department of Economics<br>
+          3060 Jenkins-Nanovic Hall<br>
+          Notre Dame, IN 46556 USA
+        </div>
+      </div>
+    </article>
+
+	  <!-- Sticky contact pill (moved to very end for reliability) -->
+	<div class="contact-pill">
+	  <a href="mailto:jhukill@nd.edu">Email Jacob</a>
+	</div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+	  
+  </body>
+</html>
