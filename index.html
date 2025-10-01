@@ -16,16 +16,15 @@
       #research header { margin-bottom: 0.5em; }
       #research header + p { margin-top: 0.25em; }
 
-      /* Robust photo + contact stack to prevent ANY overlap */
-      .photo-block { display: block; }
-      .photo-block .image.fit { display:block; margin: 0 0 0.9rem 0; }
-      .photo-block .image.fit img { display:block; height:auto; /* let theme's CSS control radius/shape */ }
+      /* Keep the original oval mask from theme, but prevent overlap */
+      .photo-block { display:block; }
+      .photo-block .image.fit { display:block; margin: 0 0 1rem 0 !important; position: static !important; }
+      .photo-block .image.fit img { display:block; width:100%; height:auto; position: static !important; }
 
-      .under-photo-contact { margin-top: 0; text-align:center; clear: both; }
+      .under-photo-contact { display:block; margin-top: 0 !important; padding-top: 0.5rem; text-align:center; clear: both; position: relative; z-index: 1; }
       .under-photo-contact .email { display:block; font-weight:600; margin-bottom:0.5rem; word-break: break-word; }
       .under-photo-contact .btn { display:inline-block; border-radius:999px; padding:0.5rem 0.9rem; border:1px solid rgba(0,0,0,0.15); text-decoration:none; background:#fff; }
 
-      /* Mobile guards */
       .hero-left { margin-bottom: 1rem; }
       @media screen and (max-width: 736px) {
         .hero-left { margin-bottom: 1.75rem; }
@@ -134,5 +133,6 @@
     <script src="assets/js/main.js"></script>
   </body>
 </html>
+
 
 
