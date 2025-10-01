@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/main.css" />
 
     <style>
-							  /* --- Layout tweaks --- */
+						  /* --- Layout tweaks --- */
 				#research p { text-align: left; }
 				#research header { margin-bottom: 0.5em; }
 				#research header + p { margin-top: 0.25em; }
@@ -226,25 +226,6 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-
-			<script>
-		(function(){
-		  // Keep the pill pinned to the bottom of the *visual* viewport on Chrome mobile.
-		  const pill = document.querySelector('.contact-pill');
-		  if (!pill || !window.visualViewport) return;
-		
-		  function pinToVV(){
-		    const vv = window.visualViewport;
-		    // Shift the fixed element down by the visual viewport's offset (when URL bar shows/hides)
-		    pill.style.transform = 'translate3d(0,' + vv.offsetTop + 'px,0)';
-		  }
-		
-		  // Initial position + listen for visual viewport changes
-		  pinToVV();
-		  visualViewport.addEventListener('scroll', pinToVV);
-		  visualViewport.addEventListener('resize', pinToVV);
-		})();
-		</script>
 
 	  
   </body>
