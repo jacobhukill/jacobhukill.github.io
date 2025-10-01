@@ -73,6 +73,9 @@
       @media screen and (max-width: 736px) {
         .contact-card { margin-top: 1.25rem; }
       }
+          .under-photo-contact { margin-top: 0.75rem; }
+      .under-photo-contact .email { display:block; font-weight:600; margin-bottom:0.5rem; }
+      .under-photo-contact .btn { display:inline-block; }
     </style>
   </head>
   <body class="is-preload">
@@ -95,8 +98,12 @@
       <div class="container">
         <div class="row">
           <div class="col-4 col-5-large col-12-medium">
-            <span class="image fit"><img src="images/DSC_7941.jpg" alt="Portrait of Jacob Hukill" /></span>
-          </div>
+            $1
+            <div class="under-photo-contact">
+              <a class="email" href="mailto:jhukill@nd.edu">jhukill@nd.edu</a>
+              <a class="btn btn-secondary" href="#contact">Full Contact Details</a>
+            </div>
+</div>
           <div class="col-8 col-7-large col-12-medium">
             <header>
               <h1><strong>Jacob Hukill</strong></h1>
@@ -113,21 +120,7 @@
             </header>
 
             <!-- Prominent contact card right in the hero (no scrolling needed) -->
-            <section class="contact-card" aria-labelledby="contact-hero-title">
-              <h3 id="contact-hero-title">Contact</h3>
-              <address>
-                <a href="mailto:jhukill@nd.edu">jhukill@nd.edu</a><br/>
-                University of Notre Dame<br/>
-                Department of Economics<br/>
-                3060 Jenkins-Nanovic Hall<br/>
-                Notre Dame, IN 46556 USA
-              </address>
-              <div class="contact-actions">
-                <a class="btn btn-primary" href="mailto:jhukill@nd.edu">Email Me</a>
-                <a class="btn btn-secondary" href="#contact">Full Contact Details</a>
-                <a class="btn btn-secondary" href="Hukill_CV.pdf" target="_blank" rel="noopener">View CV</a>
-              </div>
-            </section>
+            
 
           </div>
         </div>
