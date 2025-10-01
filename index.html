@@ -11,51 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
 
-    <!-- Lightweight inline tweaks for a prominent contact card in the hero -->
     <style>
-      /* keep existing research paragraph alignment tweaks */
       #research p { text-align: left; }
       #research header { margin-bottom: 0.5em; }
       #research header + p { margin-top: 0.25em; }
 
-      /* Contact-forward hero card */
-      .contact-card {
-        background: rgba(255,255,255,0.9);
-        border: 1px solid rgba(0,0,0,0.08);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        border-radius: 16px;
-        padding: 1.25rem 1.25rem 1rem;
-        margin-top: 1rem;
-      }
-      .contact-card h3 {
-        margin: 0 0 0.5rem 0;
-      }
-      .contact-card address {
-        font-style: normal;
-        line-height: 1.35;
-        margin-bottom: 0.75rem;
-      }
-      .contact-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      .btn {
-        display: inline-block;
-        border-radius: 999px;
-        padding: 0.6rem 1rem;
-        border: 1px solid rgba(0,0,0,0.15);
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .btn-primary {
-        background: #2ebaae; /* matches Miniport accent */
-        color: #fff;
-        border-color: #2ebaae;
-      }
-      .btn-secondary { background: #fff; color: #333; }
+      .under-photo-contact { margin-top: 0.75rem; }
+      .under-photo-contact .email { display:block; font-weight:600; margin-bottom:0.5rem; }
+      .under-photo-contact .btn { display:inline-block; border-radius:999px; padding:0.4rem 0.8rem; border:1px solid rgba(0,0,0,0.15); text-decoration:none; }
 
-      /* Optional sticky contact pill visible on all pages */
       .contact-pill {
         position: fixed;
         bottom: 18px;
@@ -68,14 +32,6 @@
         z-index: 1000;
       }
       .contact-pill a { color: #fff; text-decoration: none; font-weight: 700; }
-
-      /* Improve spacing on small screens */
-      @media screen and (max-width: 736px) {
-        .contact-card { margin-top: 1.25rem; }
-      }
-          .under-photo-contact { margin-top: 0.75rem; }
-      .under-photo-contact .email { display:block; font-weight:600; margin-bottom:0.5rem; }
-      .under-photo-contact .btn { display:inline-block; }
     </style>
   </head>
   <body class="is-preload">
@@ -83,14 +39,13 @@
     <!-- Nav -->
     <nav id="nav">
       <ul class="container">
-        <!-- Fix anchor: Home should target #top -->
         <li><a href="#top">Home</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
-    <!-- Sticky contact pill (quick email anywhere on page) -->
+    <!-- Sticky contact pill -->
     <div class="contact-pill"><a href="mailto:jhukill@nd.edu">Email Jacob</a></div>
 
     <!-- Home / Hero -->
@@ -98,12 +53,12 @@
       <div class="container">
         <div class="row">
           <div class="col-4 col-5-large col-12-medium">
-            $1
+            <span class="image fit"><img src="images/DSC_7941.jpg" alt="Portrait of Jacob Hukill" /></span>
             <div class="under-photo-contact">
               <a class="email" href="mailto:jhukill@nd.edu">jhukill@nd.edu</a>
-              <a class="btn btn-secondary" href="#contact">Full Contact Details</a>
+              <a class="btn" href="#contact">Full Contact Details</a>
             </div>
-</div>
+          </div>
           <div class="col-8 col-7-large col-12-medium">
             <header>
               <h1><strong>Jacob Hukill</strong></h1>
@@ -118,10 +73,6 @@
                 <a href="Hukill_CV.pdf" target="_blank" rel="noopener">my CV here</a>.
               </p>
             </header>
-
-            <!-- Prominent contact card right in the hero (no scrolling needed) -->
-            
-
           </div>
         </div>
       </div>
@@ -154,7 +105,7 @@
       </div>
     </article>
 
-    <!-- Contact (full details retained for deep link and completeness) -->
+    <!-- Contact -->
     <article id="contact" class="wrapper style3">
       <div class="container">
         <header>
@@ -179,3 +130,4 @@
     <script src="assets/js/main.js"></script>
   </body>
 </html>
+
