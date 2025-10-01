@@ -12,48 +12,52 @@
     <link rel="stylesheet" href="assets/css/main.css" />
 
     <style>
-  #research p { text-align: left; }
-  #research header { margin-bottom: 0.5em; }
-  #research header + p { margin-top: 0.25em; }
+  /* Research section tweaks (unchanged) */
+#research p { text-align: left; }
+#research header { margin-bottom: 0.5em; }
+#research header + p { margin-top: 0.25em; }
 
-  /* Make the left column stack vertically and reserve space under the image */
-  .hero-left { display: flex; flex-direction: column; margin-bottom: 1rem; }
+/* Left column: stack image + contact vertically */
+.hero-left { display: flex; flex-direction: column; margin-bottom: 1rem; }
 
-  /* Ensure the image box participates in layout (not overlaying) */
-  .image.fit { display: block; margin: 0 0 1.25rem 0; overflow: hidden; }
-  .image.fit img { display: block; width: 100%; height: auto; position: static !important; }
+/* Restore theme’s image behavior (no overflow/position overrides) */
+.image.fit { display: block; margin: 0 0 1.25rem 0; }        /* <-- no overflow */
+.image.fit img { display: block; width: 100%; height: auto; } /* <-- no position: static */
 
-  /* Contact block sits below the image in normal flow */
-  .under-photo-contact {
-    margin-top: 0;
-    text-align: center;
-  }
-  .under-photo-contact .email {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    word-break: break-word;
-  }
-  .under-photo-contact .btn {
-    display: inline-block;
-    border-radius: 999px;
-    padding: 0.5rem 0.9rem;
-    border: 1px solid rgba(0,0,0,0.15);
-    text-decoration: none;
-    background: #fff;
-  }
+/* Contact block sits below image and can’t sit under it */
+.under-photo-contact {
+  margin-top: 0;
+  text-align: center;
+  clear: both;   /* ensure it never tucks under floats/masks */
+}
+.under-photo-contact .email {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+.under-photo-contact .btn {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  text-decoration: none;
+  background: #fff;
+}
 
-  @media screen and (max-width: 736px) {
-    .hero-left { margin-bottom: 1.75rem; }
-    .hero-right { clear: both; }
-  }
+@media screen and (max-width: 736px) {
+  .hero-left { margin-bottom: 1.75rem; }
+  .hero-right { clear: both; }
+}
 
-  .contact-pill {
-    position: fixed; bottom: 18px; right: 18px;
-    background: #2ebaae; color: #fff; padding: 0.7rem 1rem;
-    border-radius: 999px; box-shadow: 0 10px 20px rgba(0,0,0,0.12); z-index: 1000;
-  }
-  .contact-pill a { color: #fff; text-decoration: none; font-weight: 700; }
+/* Sticky contact pill (unchanged) */
+.contact-pill {
+  position: fixed; bottom: 18px; right: 18px;
+  background: #2ebaae; color: #fff; padding: 0.7rem 1rem;
+  border-radius: 999px; box-shadow: 0 10px 20px rgba(0,0,0,0.12); z-index: 1000;
+}
+.contact-pill a { color: #fff; text-decoration: none; font-weight: 700; }
+
 </style>
 
   </head>
