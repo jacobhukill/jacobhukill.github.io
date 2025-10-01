@@ -66,28 +66,45 @@
 		}
 		
 		/* --- Floating Contact Pill --- */
-		/* Keep only positioning on the wrapper */
+		/* --- Floating Contact Pill (hardened for mobile) --- */
+		/* Only positioning on the wrapper; fixed to the viewport */
 		.contact-pill {
 		  position: fixed;
-		  bottom: 18px;
 		  right: 18px;
-		  z-index: 1000;
+		  bottom: 18px;
+		  z-index: 2147483647;            /* stay above all themed sections */
+		  pointer-events: none;           /* let the anchor receive the click */
 		}
 		
-		/* Make the <a> the actual pill so the whole shape is clickable */
+		/* Make the <a> the pill so the whole shape is clickable */
 		.contact-pill a {
+		  pointer-events: auto;
 		  display: inline-block;
-		  background: var(--nd-blue);
-		  color: var(--nd-gold);
-		  font-weight: 700;
-		  text-decoration: none;
 		  padding: 0.7rem 1rem;
 		  border-radius: 999px;
+		  background: var(--nd-blue);
+		  color: var(--nd-gold) !important;
+		  font-weight: 700;
+		  text-decoration: none;
 		  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+		  transition: background .15s ease, color .15s ease, transform .15s ease;
+		  -webkit-tap-highlight-color: transparent; /* kills blue tap flash on iOS */
 		}
-		.contact-pill a:hover {
-		  background: var(--nd-blue-dark);
-		  color: var(--nd-gold-light);
+		/* Hover/active/focus: darker blue + lighter gold, slight lift */
+		.contact-pill a:hover,
+		.contact-pill a:focus,
+		.contact-pill a:active,
+		.contact-pill a:visited:hover {
+		  background: var(--nd-blue-dark) !important;
+		  color: var(--nd-gold-light) !important;
+		  transform: translateY(-1px);
+		}
+		
+		/* Respect iPhone safe-area so it doesn't sit under the home bar */
+		@supports (padding-bottom: env(safe-area-inset-bottom)) {
+		  .contact-pill {
+		    bottom: calc(18px + env(safe-area-inset-bottom));
+		  }
 		}
 		
 		/* --- Nav Bar Colors --- */
@@ -151,8 +168,6 @@
       </ul>
     </nav>
 
-    <!-- Sticky contact pill -->
-    <div class="contact-pill"><a href="mailto:jhukill@nd.edu">Email Jacob</a></div>
 
     <!-- Home / Hero -->
     <article id="top" class="wrapper style1">
@@ -228,6 +243,11 @@
         </div>
       </div>
     </article>
+
+	  <!-- Sticky contact pill (moved to very end for reliability) -->
+	<div class="contact-pill">
+	  <a href="mailto:jhukill@nd.edu">Email Jacob</a>
+	</div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
