@@ -16,34 +16,23 @@
       #research header { margin-bottom: 0.5em; }
       #research header + p { margin-top: 0.25em; }
 
-      /* Ensure image and contact block stack naturally */
-      .image.fit { display:block; margin: 0 0 1rem 0; }
-      .image.fit img { display:block; width:100%; height:auto; }
+      /* Robust photo + contact stack to prevent overlap */
+      .photo-block { display: flex; flex-direction: column; align-items: center; }
+      .photo-block .image.fit { display: block; position: static; margin: 0; width: 100%; }
+      .photo-block .image.fit img { display:block; width:100%; height:auto; }
 
-      .under-photo-contact { margin-top: 0.5rem; text-align:center; clear: both; }
-      .under-photo-contact .email { display:block; font-weight:600; margin-bottom:0.5rem; word-break: break-all; }
+      .under-photo-contact { margin-top: 0.6rem; text-align:center; }
+      .under-photo-contact .email { display:block; font-weight:600; margin-bottom:0.5rem; word-break: break-word; }
       .under-photo-contact .btn { display:inline-block; border-radius:999px; padding:0.5rem 0.9rem; border:1px solid rgba(0,0,0,0.15); text-decoration:none; background:#fff; }
 
-      /* Add explicit layout guards for mobile */
+      /* Mobile guards */
       .hero-left { margin-bottom: 1rem; }
-      .hero-right { }
       @media screen and (max-width: 736px) {
-        .hero-left { margin-bottom: 1.5rem; }
-        .hero-right { clear: both; }
-        .contact-pill { bottom: 12px; right: 12px; }
+        .hero-left { margin-bottom: 1.75rem; }
+        .photo-block { max-width: 360px; margin: 0 auto; }
       }
 
-      .contact-pill {
-        position: fixed;
-        bottom: 18px;
-        right: 18px;
-        background: #2ebaae;
-        color: #fff;
-        padding: 0.7rem 1rem;
-        border-radius: 999px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-        z-index: 1000;
-      }
+      .contact-pill { position: fixed; bottom: 18px; right: 18px; background: #2ebaae; color: #fff; padding: 0.7rem 1rem; border-radius: 999px; box-shadow: 0 10px 20px rgba(0,0,0,0.12); z-index: 1000; }
       .contact-pill a { color: #fff; text-decoration: none; font-weight: 700; }
     </style>
   </head>
@@ -66,10 +55,12 @@
       <div class="container">
         <div class="row">
           <div class="col-4 col-5-large col-12-medium hero-left">
-            <span class="image fit"><img src="images/DSC_7941.jpg" alt="Portrait of Jacob Hukill" /></span>
-            <div class="under-photo-contact">
-              <a class="email" href="mailto:jhukill@nd.edu">jhukill@nd.edu</a>
-              <a class="btn" href="#contact">Full Contact Details</a>
+            <div class="photo-block">
+              <span class="image fit"><img src="images/DSC_7941.jpg" alt="Portrait of Jacob Hukill" /></span>
+              <div class="under-photo-contact">
+                <a class="email" href="mailto:jhukill@nd.edu">jhukill@nd.edu</a>
+                <a class="btn" href="#contact">Full Contact Details</a>
+              </div>
             </div>
           </div>
           <div class="col-8 col-7-large col-12-medium hero-right">
