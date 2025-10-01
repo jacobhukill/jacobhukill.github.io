@@ -12,124 +12,109 @@
     <link rel="stylesheet" href="assets/css/main.css" />
 
     <style>
-      #research p { text-align: left; }
-      #research header { margin-bottom: 0.5em; }
-      #research header + p { margin-top: 0.25em; }
-
-      .image.fit {
-        display: block;
-        position: relative;
-      }
-
-      .under-photo-contact {
-        margin-top: 0.75rem;
-        text-align: center;
-      }
-      .under-photo-contact .email {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-      .under-photo-contact .btn {
-        display: inline-block;
-        border-radius: 999px;
-        padding: 0.4rem 0.8rem;
-        border: 1px solid rgba(0,0,0,0.15);
-        text-decoration: none;
-        background: #fff;
-      }
-
-      .contact-pill {
-        position: fixed;
-        bottom: 18px;
-        right: 18px;
-        background: #2ebaae;
-        color: #fff;
-        padding: 0.7rem 1rem;
-        border-radius: 999px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-        z-index: 1000;
-      }
-      .contact-pill a { color: #fff; text-decoration: none; font-weight: 700; }
-
+      /* --- Layout tweaks --- */
+		#research p { text-align: left; }
+		#research header { margin-bottom: 0.5em; }
+		#research header + p { margin-top: 0.25em; }
+		
+		.image.fit { display: block; position: relative; }
+		
+		.under-photo-contact {
+		  margin-top: 0.75rem;
+		  text-align: center;
+		}
+		.under-photo-contact .email {
+		  display: block;
+		  font-weight: 600;
+		  margin-bottom: 0.5rem;
+		}
+		
 		/* Ensure clean stacking & spacing on small screens */
 		@media screen and (max-width: 736px) {
-		  #top .image.fit { 
-		    margin-bottom: 10rem; /* creates space so text never overlaps */
+		  #top .image.fit {
+		    margin-bottom: 10rem; /* space so text never overlaps the photo block */
 		  }
 		}
-
-		/* --- Notre Dame color updates --- */
-
-		/* Contact pill (fixed button) */
-		.contact-pill {
-		  background: #0c2340; /* ND Blue */
-		}
-		.contact-pill a {
-		  color: #ae9142; /* ND Metallic Gold */
-		  font-weight: 700;
-			text-decoration: none;
-		}
-
-		.contact-pill a:hover {
-		  background: #0a1b32;  /* darker ND Blue */
-		  color: #d4b66d; /* lighter gold on hover */
+		
+		/* --- ND Color Theme --- */
+		:root {
+		  --nd-blue: #0c2340;
+		  --nd-blue-dark: #0a1b32;  /* hover */
+		  --nd-gold: #ae9142;
+		  --nd-gold-light: #d4b66d; /* hover */
 		}
 		
 		/* Button under the photo */
 		.under-photo-contact .btn {
-		  background: #0c2340;   /* ND Blue */
-		  color: #ae9142;        /* ND Metallic Gold text */
+		  display: inline-block;
+		  border-radius: 999px;
+		  padding: 0.4rem 0.8rem;
+		  text-decoration: none;
+		  background: var(--nd-blue);
+		  color: var(--nd-gold);
 		  border: none;
-			font-weight: 700;
+		  font-weight: 700;
 		}
 		.under-photo-contact .btn:hover {
-		  background: #0a1b32;   /* slightly darker blue on hover */
-			  color: #d4b66d;        /* lighter gold for hover text */
+		  background: var(--nd-blue-dark);
+		  color: var(--nd-gold-light);
 		}
 		
-		/* Email under the photo */
+		/* Email under the photo (gold) */
 		.under-photo-contact .email {
-		  color: #ae9142; /* ND Metallic Gold */
+		  color: var(--nd-gold);
 		}
-
-		/* General link color override inside articles */
-		.wrapper a {
-		  color: #ae9142; /* ND Metallic Gold */
-		  text-decoration: underline; /* keep it clear it's a link */
+		
+		/* --- Floating Contact Pill --- */
+		/* Keep only positioning on the wrapper */
+		.contact-pill {
+		  position: fixed;
+		  bottom: 18px;
+		  right: 18px;
+		  z-index: 1000;
 		}
-		.wrapper a:hover {
-		  color: #d4b66d; /* lighter gold on hover */
+		
+		/* Make the <a> the actual pill so the whole shape is clickable */
+		.contact-pill a {
+		  display: inline-block;
+		  background: var(--nd-blue);
+		  color: var(--nd-gold);
+		  font-weight: 700;
+		  text-decoration: none;
+		  padding: 0.7rem 1rem;
+		  border-radius: 999px;
+		  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 		}
-
+		.contact-pill a:hover {
+		  background: var(--nd-blue-dark);
+		  color: var(--nd-gold-light);
+		}
+		
 		/* --- Nav Bar Colors --- */
 		#nav {
-		  background: #0c2340; /* ND Blue */
+		  background: var(--nd-blue);
 		}
-		
 		#nav ul li a {
-		  color: #ae9142;      /* ND Gold text */
-		  font-weight: 600;    /* give it some presence */
+		  color: var(--nd-gold);
+		  font-weight: 600;
 		  text-decoration: none;
 		}
-		
 		#nav ul li a:hover {
-		  color: #d4b66d;      /* lighter gold on hover */
+		  color: var(--nd-gold-light);
 		}
-
-		/* Force all links inside content to use ND Gold */
+		
+		/* --- Force all content links to ND Gold (beats theme rules) --- */
 		.wrapper a,
 		.wrapper p a,
 		.wrapper header a {
-		  color: #ae9142 !important;  /* ND Metallic Gold */
+		  color: var(--nd-gold) !important;
 		  text-decoration: underline;
 		}
-		
 		.wrapper a:hover,
 		.wrapper p a:hover,
 		.wrapper header a:hover {
-		  color: #d4b66d !important;  /* lighter gold on hover */
-		}
+		  color: var(--nd-gold-light) !important;
+}
 		
     </style>
   </head>
