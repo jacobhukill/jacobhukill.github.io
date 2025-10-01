@@ -51,6 +51,13 @@
         z-index: 1000;
       }
       .contact-pill a { color: #fff; text-decoration: none; font-weight: 700; }
+
+		/* Ensure clean stacking & spacing on small screens */
+		@media screen and (max-width: 736px) {
+		  #top .image.fit { 
+		    margin-bottom: 1rem; /* creates space so text never overlaps */
+		  }
+		}
     </style>
   </head>
   <body class="is-preload">
@@ -71,7 +78,7 @@
     <article id="top" class="wrapper style1">
       <div class="container">
         <div class="row">
-          <div class="col-4 col-5-large col-12-medium">
+  		   <div class="col-4 col-5-large col-12-medium col-12-small">
             <div class="image fit">
               <img src="images/DSC_7941.jpg" alt="Portrait of Jacob Hukill" />
               <div class="under-photo-contact">
@@ -80,7 +87,7 @@
               </div>
             </div>
           </div>
-          <div class="col-8 col-7-large col-12-medium">
+          <div class="col-8 col-7-large col-12-medium  col-12-small">
             <header>
               <h1><strong>Jacob Hukill</strong></h1>
               <h4>Macroeconomist</h4>
