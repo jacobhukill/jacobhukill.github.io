@@ -17,20 +17,23 @@
 #research header { margin-bottom: 0.5em; }
 #research header + p { margin-top: 0.25em; }
 
-/* Left column: stack image + contact vertically */
+/* Keep the left column stacking so the contact block follows the photo */
 .hero-left { display: flex; flex-direction: column; margin-bottom: 1rem; }
 
-/* Restore theme’s image behavior (no overflow/position overrides) */
-.image.fit { display: block; margin: 0 0 1.25rem 0; }        /* <-- no overflow */
-.image.fit img { display: block; width: 100%; height: auto; } /* <-- no position: static */
-.image.fit::after { content: ""; display: block; clear: both; }
+/* Ensure the image keeps the theme mask but doesn't cover following content */
+.image.fit { position: relative; margin: 0 0 1.25rem 0; }
+.image.fit img { display: block; width: 100%; height: auto; position: relative; z-index: 1; }
+/* Push the theme's masking pseudo-element behind the photo and UI */
+.image.fit::before,
+.image.fit::after { pointer-events: none; z-index: 0 !important; }
 
-
-/* Contact block sits below image and can’t sit under it */
+/* Make the contact row sit above any leftover overlays, with a little spacing */
 .under-photo-contact {
-  margin-top: 0;
+  position: relative;
+  z-index: 5;
+  margin-top: 0.25rem;
   text-align: center;
-  clear: both;   /* ensure it never tucks under floats/masks */
+  clear: both;
 }
 .under-photo-contact .email {
   display: block;
@@ -47,10 +50,12 @@
   background: #fff;
 }
 
+/* Mobile spacing */
 @media screen and (max-width: 736px) {
   .hero-left { margin-bottom: 1.75rem; }
   .hero-right { clear: both; }
 }
+
 
 /* Sticky contact pill (unchanged) */
 .contact-pill {
