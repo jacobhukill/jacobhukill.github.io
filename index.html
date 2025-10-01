@@ -12,147 +12,132 @@
     <link rel="stylesheet" href="assets/css/main.css" />
 
     <style>
-      /* --- Layout tweaks --- */
-		#research p { text-align: left; }
-		#research header { margin-bottom: 0.5em; }
-		#research header + p { margin-top: 0.25em; }
-		
-		.image.fit { display: block; position: relative; }
-		
-		.under-photo-contact {
-		  margin-top: 0.75rem;
-		  text-align: center;
-		}
-		.under-photo-contact .email {
-		  display: block;
-		  font-weight: 600;
-		  margin-bottom: 0.5rem;
-		}
-		
-		/* Ensure clean stacking & spacing on small screens */
-		@media screen and (max-width: 736px) {
-		  #top .image.fit {
-		    margin-bottom: 10rem; /* space so text never overlaps the photo block */
-		  }
-		}
-		
-		/* --- ND Color Theme --- */
-		:root {
-		  --nd-blue: #0c2340;
-		  --nd-blue-dark: #0a1b32;  /* hover */
-		  --nd-gold: #ae9142;
-		  --nd-gold-light: #d4b66d; /* hover */
-		}
-		
-		/* Button under the photo */
-		.under-photo-contact .btn {
-		  display: inline-block;
-		  border-radius: 999px;
-		  padding: 0.4rem 0.8rem;
-		  text-decoration: none;
-		  background: var(--nd-blue);
-		  color: var(--nd-gold);
-		  border: none;
-		  font-weight: 700;
-		}
-		.under-photo-contact .btn:hover {
-		  background: var(--nd-blue-dark);
-		  color: var(--nd-gold-light);
-		}
-		
-		/* Email under the photo (gold) */
-		.under-photo-contact .email {
-		  color: var(--nd-gold);
-		}
-		
-		/* --- Floating Contact Pill --- */
-		/* --- Floating Contact Pill (hardened for mobile) --- */
-		/* Only positioning on the wrapper; fixed to the viewport */
-		.contact-pill {
-		  position: fixed;
-		  right: 18px;
-		  bottom: 18px;
-		  z-index: 2147483647;            /* stay above all themed sections */
-		  pointer-events: none;           /* let the anchor receive the click */
-		}
-		
-		/* Make the <a> the pill so the whole shape is clickable */
-		.contact-pill a {
-		  pointer-events: auto;
-		  display: inline-block;
-		  padding: 0.7rem 1rem;
-		  border-radius: 999px;
-		  background: var(--nd-blue);
-		  color: var(--nd-gold) !important;
-		  font-weight: 700;
-		  text-decoration: none;
-		  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-		  transition: background .15s ease, color .15s ease, transform .15s ease;
-		  -webkit-tap-highlight-color: transparent; /* kills blue tap flash on iOS */
-		}
-		/* Hover/active/focus: darker blue + lighter gold, slight lift */
-		.contact-pill a:hover,
-		.contact-pill a:focus,
-		.contact-pill a:active,
-		.contact-pill a:visited:hover {
-		  background: var(--nd-blue-dark) !important;
-		  color: var(--nd-gold-light) !important;
-		  transform: translateY(-1px);
-		}
-		
-		/* Respect iPhone safe-area so it doesn't sit under the home bar */
-		@supports (padding-bottom: env(safe-area-inset-bottom)) {
-		  .contact-pill {
-		    bottom: calc(18px + env(safe-area-inset-bottom));
-		  }
-		}
-		
-		/* --- Nav Bar Colors --- */
-		#nav {
-		  background: var(--nd-blue);
-		}
-		#nav ul li a {
-		  color: var(--nd-gold);
-		  font-weight: 600;
-		  text-decoration: none;
-		}
-		#nav ul li a:hover {
-		  color: var(--nd-gold-light);
-		}
-		
-		/* --- Force all content links to ND Gold (beats theme rules) --- */
-		.wrapper a,
-		.wrapper p a,
-		.wrapper header a {
-		  color: var(--nd-gold) !important;
-		  text-decoration: underline;
-		}
-		.wrapper a:hover,
-		.wrapper p a:hover,
-		.wrapper header a:hover {
-		  color: var(--nd-gold-light) !important;
-		}
+			      /* --- Layout tweaks --- */
+			#research p { text-align: left; }
+			#research header { margin-bottom: 0.5em; }
+			#research header + p { margin-top: 0.25em; }
+			
+			.image.fit { display: block; position: relative; }
+			
+			.under-photo-contact {
+			  margin-top: 0.75rem;
+			  text-align: center;
+			}
+			.under-photo-contact .email {
+			  display: block;
+			  font-weight: 600;
+			  margin-bottom: 0.5rem;
+			}
+			
+			/* Ensure clean stacking & spacing on small screens */
+			@media screen and (max-width: 736px) {
+			  #top .image.fit {
+			    margin-bottom: 10rem; /* space so text never overlaps the photo block */
+			  }
+			}
+			
+			/* --- ND Color Theme --- */
+			:root {
+			  --nd-blue: #0c2340;
+			  --nd-blue-dark: #0a1b32;  /* hover */
+			  --nd-gold: #ae9142;
+			  --nd-gold-light: #d4b66d; /* hover */
+			}
+			
+			/* Button under the photo */
+			.under-photo-contact .btn {
+			  display: inline-block;
+			  border-radius: 999px;
+			  padding: 0.4rem 0.8rem;
+			  text-decoration: none;
+			  background: var(--nd-blue);
+			  color: var(--nd-gold);
+			  border: none;
+			  font-weight: 700;
+			}
+			.under-photo-contact .btn:hover {
+			  background: var(--nd-blue-dark);
+			  color: var(--nd-gold-light);
+			}
+			
+			/* Email under the photo (gold) */
+			.under-photo-contact .email { color: var(--nd-gold); }
+			
+			/* --- Floating Contact Pill --- */
+			/* Only positioning on the wrapper; fixed to the viewport */
+			.contact-pill {
+			  position: fixed;
+			  right: 18px;
+			  bottom: 18px;
+			  z-index: 2147483647; /* above everything */
+			  pointer-events: none; /* anchor handles clicks */
+			}
+			
+			/* Make the <a> the pill so the whole shape is clickable */
+			.contact-pill a {
+			  pointer-events: auto;
+			  display: inline-block;
+			  padding: 0.7rem 1rem;
+			  border-radius: 999px;
+			  background: var(--nd-blue);
+			  color: var(--nd-gold) !important;
+			  font-weight: 700;
+			  text-decoration: none;
+			  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+			  transition: background .15s ease, color .15s ease, transform .15s ease;
+			  -webkit-tap-highlight-color: transparent; /* iOS tap flash */
+			}
+			.contact-pill a:hover,
+			.contact-pill a:focus,
+			.contact-pill a:active,
+			.contact-pill a:visited:hover {
+			  background: var(--nd-blue-dark) !important;
+			  color: var(--nd-gold-light) !important;
+			  transform: translateY(-1px);
+			}
+			
+			/* Respect iPhone safe-area so it doesn't sit under the home bar */
+			@supports (padding-bottom: env(safe-area-inset-bottom)) {
+			  .contact-pill {
+			    bottom: calc(18px + env(safe-area-inset-bottom));
+			  }
+			}
+			
+			/* --- Anti-trap: don’t let sections create a fixed-position containing block */
+			.wrapper,
+			article.wrapper,
+			article.wrapper.style1,
+			article.wrapper.style3,
+			#contact {
+			  transform: none !important;
+			  -webkit-transform: none !important;
+			  will-change: auto !important;
+			  filter: none !important;
+			  perspective: none !important;
+			}
+			
+			/* --- Nav Bar Colors --- */
+			#nav { background: var(--nd-blue); }
+			#nav ul li a {
+			  color: var(--nd-gold);
+			  font-weight: 600;
+			  text-decoration: none;
+			}
+			#nav ul li a:hover { color: var(--nd-gold-light); }
+			
+			/* --- Force all content links to ND Gold (beats theme rules) --- */
+			.wrapper a,
+			.wrapper p a,
+			.wrapper header a {
+			  color: var(--nd-gold) !important;
+			  text-decoration: underline;
+			}
+			.wrapper a:hover,
+			.wrapper p a:hover,
+			.wrapper header a:hover {
+			  color: var(--nd-gold-light) !important;
+			}
 
-
-		/* Final override: ensure the floating Email Jacob pill stays gold */
-		.contact-pill a {
-		  display: inline-block;
-		  background: var(--nd-blue);
-		  color: var(--nd-gold) !important;
-		  font-weight: 700;
-		  text-decoration: none;
-		  padding: 0.7rem 1rem;
-		  border-radius: 999px;
-		  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-		  -webkit-tap-highlight-color: transparent; /* kills mobile blue tap flash */
-		}
-		
-		.contact-pill a:hover,
-		.contact-pill a:focus,
-		.contact-pill a:active,
-		.contact-pill a:visited:hover {
-		  background: var(--nd-blue-dark) !important;
-		  color: var(--nd-gold-light) !important;
 		
     </style>
   </head>
