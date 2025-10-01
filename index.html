@@ -17,23 +17,39 @@
 #research header { margin-bottom: 0.5em; }
 #research header + p { margin-top: 0.25em; }
 
-/* Keep the left column stacking so the contact block follows the photo */
-.hero-left { display: flex; flex-direction: column; margin-bottom: 1rem; }
+/* 1) Left column just stacks normally */
+.hero-left { display: block; }
 
-/* Ensure the image keeps the theme mask but doesn't cover following content */
-.image.fit { position: relative; margin: 0 0 1.25rem 0; }
-.image.fit img { display: block; width: 100%; height: auto; position: relative; z-index: 1; }
-/* Push the theme's masking pseudo-element behind the photo and UI */
+/* 2) Make the image a normal block with real bottom spacing */
+.image.fit {
+  position: relative;           /* keep the theme mask positioned to this box */
+  display: block;
+  margin: 0 0 1.25rem 0;        /* space reserved BELOW the image */
+  overflow: visible;            /* don't squish the oval */
+  isolation: isolate;           /* keep its z-index world self-contained */
+}
+.image.fit img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 3) Clamp the theme's mask to the image box so it can't hang below it */
 .image.fit::before,
-.image.fit::after { pointer-events: none; z-index: 0 !important; }
+.image.fit::after {
+  position: absolute;
+  content: "";
+  top: 0; right: 0; bottom: 0; left: 0;   /* never extend past the container */
+  pointer-events: none;                    /* never block clicks below */
+  /* no z-index here; it will be contained by isolation above */
+}
 
-/* Make the contact row sit above any leftover overlays, with a little spacing */
+/* 4) Force the contact block to start on a new line, below the image */
 .under-photo-contact {
-  position: relative;
-  z-index: 5;
-  margin-top: 0.25rem;
+  clear: both;                 /* if the theme floats the mask, this clears it */
+  position: static;            /* ensure it doesn't layer on top */
+  margin-top: 0;               /* margin already provided by .image.fit */
   text-align: center;
-  clear: both;
 }
 .under-photo-contact .email {
   display: block;
@@ -49,6 +65,7 @@
   text-decoration: none;
   background: #fff;
 }
+
 
 /* Mobile spacing */
 @media screen and (max-width: 736px) {
