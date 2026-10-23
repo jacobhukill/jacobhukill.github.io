@@ -1,217 +1,310 @@
 <!DOCTYPE HTML>
 <!--
-	Miniport by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Miniport by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license
+  (html5up.net/license)
 -->
-<html>
+<html lang="en">
   <head>
     <title>Jacob Hukill</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
 
     <style>
-						  /* --- Layout tweaks --- */
-				#research p { text-align: left; }
-				#research header { margin-bottom: 0.5em; }
-				#research header + p { margin-top: 0.25em; }
-				
-				.image.fit { display: block; position: relative; }
-				
-				.under-photo-contact {
-				  margin-top: 0.75rem;
-				  text-align: center;
-				}
-				.under-photo-contact .email {
-				  display: block;
-				  font-weight: 600;
-				  margin-bottom: 0.5rem;
-				}
-				
-				/* Ensure clean stacking & spacing on small screens */
-				@media screen and (max-width: 736px) {
-				  #top .image.fit { margin-bottom: 10rem; }
-				}
-				
-				/* --- ND Color Theme --- */
-				:root{
-				  --nd-blue:#0c2340;
-				  --nd-blue-dark:#0a1b32;   /* hover */
-				  --nd-gold:#ae9142;
-				  --nd-gold-light:#d4b66d;  /* hover */
-				}
-				
-				/* Button under the photo */
-				.under-photo-contact .btn{
-				  display:inline-block;
-				  border-radius:999px;
-				  padding:0.4rem 0.8rem;
-				  text-decoration:none;
-				  background:var(--nd-blue);
-				  color:var(--nd-gold);
-				  border:none;
-				  font-weight:700;
-				}
-				.under-photo-contact .btn:hover{
-				  background:var(--nd-blue-dark);
-				  color:var(--nd-gold-light);
-				}
-				
-				/* Email under the photo */
-				.under-photo-contact .email{ color:var(--nd-gold); }
-				
-							/* --- Floating Contact Pill --- */
-							/* Full-viewport overlay that follows the dynamic viewport (fixes Chrome/Safari bottom bugs) */
-			.overlay-root{
-			  position: fixed;
-			  inset: 0;
-			  height: 100dvh;              /* track the visible viewport */
-			  pointer-events: none;        /* only the pill is clickable */
-			  z-index: 2147483647;
-			}
-			
-			/* Fallback if 100dvh isn’t supported */
-			@supports not (height: 100dvh){
-			  .overlay-root{ height: 100vh; }
-			}
-			
-			/* The pill itself (entire shape is clickable) */
-			.contact-pill{
-			  position: absolute;
-			  right: 18px;
-			  bottom: 18px;
-			  pointer-events: auto;
-			  display: inline-flex;
-			  align-items: center;
-			  justify-content: center;
-			  padding: 0.7rem 1rem;
-			  border-radius: 999px;
-			  background: var(--nd-blue);
-			  color: var(--nd-gold) !important;
-			  font-weight: 700;
-			  text-decoration: none;
-			  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-			  transition: background .15s ease, color .15s ease, transform .15s ease;
-			  -webkit-tap-highlight-color: transparent;
-			}
-			
-			/* Hover/active/focus */
-			.contact-pill:hover,
-			.contact-pill:focus,
-			.contact-pill:active{
-			  background: var(--nd-blue-dark) !important;
-			  color: var(--nd-gold-light) !important;
-			  transform: translateY(-1px);
-			}
-			
-			/* Respect iPhone safe area */
-			@supports (padding-bottom: env(safe-area-inset-bottom)){
-			  .contact-pill{ bottom: calc(18px + env(safe-area-inset-bottom)); }
-			}
+      /* ND color theme */
+      :root {
+        --nd-blue: #0c2340;
+        --nd-blue-dark: #0a1b32;
+        --nd-gold: #ae9142;
+        --nd-gold-light: #d4b66d;
+      }
 
-				
-				/* --- Nav Bar Colors --- */
-				#nav{ background:var(--nd-blue); }
-				#nav ul li a{
-				  color:var(--nd-gold);
-				  font-weight:600;
-				  text-decoration:none;
-				}
-				#nav ul li a:hover{ color:var(--nd-gold-light); }
-				
-				/* --- Force content links to ND Gold --- */
-				.wrapper a,
-				.wrapper p a,
-				.wrapper header a{
-				  color:var(--nd-gold) !important;
-				  text-decoration:underline;
-				}
-				.wrapper a:hover,
-				.wrapper p a:hover,
-				.wrapper header a:hover{
-				  color:var(--nd-gold-light) !important;
-				}
+      /* Navigation */
+      #nav {
+        background: var(--nd-blue);
+      }
 
+      #nav ul li a {
+        color: var(--nd-gold);
+        font-weight: 600;
+        text-decoration: none;
+      }
 
-		/* Reduce whitespace around the introduction */
-#top {
-  padding-top: 3rem;
-  padding-bottom: 2rem;
-}
+      #nav ul li a:hover {
+        color: var(--nd-gold-light);
+      }
 
-/* Reduce the gap before the JMP */
-#research {
-  padding-top: 2rem;
-}
+      /* Content links */
+      .wrapper a {
+        color: var(--nd-gold);
+        text-decoration: underline;
+      }
 
-/* Tighten spacing within the introduction */
-#top header {
-  margin-bottom: 0;
-}
+      .wrapper a:hover {
+        color: var(--nd-gold-light);
+      }
 
-#top header h1 {
-  margin-bottom: 0.4em;
-}
+      /* Compact introduction */
+      #top {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+      }
 
-#top header p {
-  margin-bottom: 1rem;
-}
+      #top header {
+        margin-bottom: 0;
+      }
 
-#top header p:last-child {
-  margin-bottom: 0;
-}
+      #top header h1 {
+        margin-bottom: 0.4em;
+      }
 
-/* Replace the oversized mobile gap below the photo */
-@media screen and (max-width: 736px) {
-  #top {
-    padding-top: 2rem;
-    padding-bottom: 1.5rem;
-  }
+      #top header p {
+        margin-bottom: 1rem;
+      }
 
-  #top .image.fit {
-    margin-bottom: 1.5rem;
-  }
-}
+      #top header p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Portrait: automatic height prevents overflow */
+      #top .image.fit {
+        display: block;
+        position: relative;
+        width: 100%;
+        max-width: 260px;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      #top .image.fit img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 100%;
+      }
+
+      /* Contact details sit outside the image wrapper */
+      #top .under-photo-contact {
+        max-width: 280px;
+        margin: 0.75rem auto 0;
+        text-align: center;
+      }
+
+      #top .under-photo-contact .email {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--nd-gold);
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      #top .under-photo-contact .btn {
+        display: inline-block;
+        padding: 0.4rem 0.9rem;
+        border: none;
+        border-radius: 999px;
+        background: var(--nd-blue);
+        color: var(--nd-gold);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      #top .under-photo-contact .btn:hover {
+        background: var(--nd-blue-dark);
+        color: var(--nd-gold-light);
+      }
+
+      /* Research section */
+      #research {
+        padding-top: 1.75rem;
+        padding-bottom: 3rem;
+        border-top: 1px solid #e3e7eb;
+        box-shadow: none;
+        text-align: left;
+      }
+
+      #research header {
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+
+      #research h2 {
+        margin-bottom: 0.75rem;
+        color: var(--nd-blue);
+      }
+
+      #research p {
+        text-align: left;
+      }
+
+      #research .paper-title {
+        margin: 0 0 0.3rem;
+        color: #3e3e3e;
+        font-size: 1.15em;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      #research .paper-links {
+        margin: 0;
+      }
+
+      #research .paper-abstract {
+        margin: 0;
+        line-height: 1.8;
+      }
+
+      #research .working-papers {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid #e3e7eb;
+      }
+
+      /* Contact section */
+      #contact {
+        padding-top: 2.5rem;
+        padding-bottom: 6rem;
+      }
+
+      #contact header {
+        margin-bottom: 1rem;
+      }
+
+      .contact-info {
+        line-height: 1.8;
+      }
+
+      /* Floating contact pill */
+      .overlay-root {
+        position: fixed;
+        inset: 0;
+        height: 100vh;
+        height: 100dvh;
+        pointer-events: none;
+        z-index: 2147483647;
+      }
+
+      .contact-pill {
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        pointer-events: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        background: var(--nd-blue);
+        color: var(--nd-gold) !important;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        transition:
+          background 0.15s ease,
+          color 0.15s ease,
+          transform 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .contact-pill:hover,
+      .contact-pill:focus,
+      .contact-pill:active {
+        background: var(--nd-blue-dark);
+        color: var(--nd-gold-light) !important;
+        transform: translateY(-1px);
+      }
+
+      @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        .contact-pill {
+          bottom: calc(18px + env(safe-area-inset-bottom));
+        }
+      }
+
+      /* Mobile spacing */
+      @media screen and (max-width: 736px) {
+        #top {
+          padding-top: 2rem;
+          padding-bottom: 1.75rem;
+        }
+
+        #top .image.fit {
+          max-width: 220px;
+          margin-bottom: 0;
+        }
+
+        #research {
+          padding-top: 1.5rem;
+        }
+
+        #research .working-papers {
+          margin-top: 2rem;
+          padding-top: 1.5rem;
+        }
+
+        .contact-pill {
+          right: 12px;
+          padding: 0.55rem 0.85rem;
+          font-size: 0.9rem;
+        }
+      }
     </style>
   </head>
-  <body class="is-preload">
 
-    <!-- Nav -->
+  <body class="is-preload">
+    <!-- Navigation -->
     <nav id="nav">
       <ul class="container">
         <li><a href="#top">Home</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#contact">Contact</a></li>
-		 <li><a href="Hukill_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+        <li>
+          <a href="Hukill_CV.pdf" target="_blank" rel="noopener">CV</a>
+        </li>
       </ul>
     </nav>
 
-
-    <!-- Home / Hero -->
+    <!-- Introduction -->
     <article id="top" class="wrapper style1">
       <div class="container">
         <div class="row">
-  		   <div class="col-4 col-5-large col-12-medium col-12-small">
+          <div class="col-4 col-5-large col-12-medium col-12-small">
             <div class="image fit">
-              <img src="images/portrait_Hukill.jpg" alt="Portrait of Jacob Hukill" />
-              <div class="under-photo-contact">
-                <a class="email" href="mailto:jhukill@nd.edu">jhukill@nd.edu</a>
-                <a class="btn" href="#contact">Full Contact Details</a>
-              </div>
+              <img
+                src="images/portrait_Hukill.jpg"
+                alt="Portrait of Jacob Hukill"
+              />
+            </div>
+
+            <div class="under-photo-contact">
+              <a class="email" href="mailto:jhukill@nd.edu">
+                jhukill@nd.edu
+              </a>
+              <a class="btn" href="#contact">Full Contact Details</a>
             </div>
           </div>
-          <div class="col-8 col-7-large col-12-medium  col-12-small">
+
+          <div class="col-8 col-7-large col-12-medium col-12-small">
             <header>
               <h1><strong>Jacob Hukill</strong></h1>
               <h4>Macroeconomist</h4>
+
               <p>
-                I am a PhD candidate at the University of Notre Dame. I am a macroeconomist with interests in household finance
-                and the economics of education. My research involves the financing of higher education. Please reach out with any inquiries.
+                I am a PhD candidate at the University of Notre Dame.
+                I am a macroeconomist with interests in household finance
+                and the economics of education. My research involves the
+                financing of higher education. Please reach out with any
+                inquiries.
               </p>
+
               <p>
-                I am on the 2026/2027 job market, and am available for interviews. You can find
-                <a href="Hukill_CV.pdf" target="_blank" rel="noopener">my CV here.</a>
+                I am on the 2026/2027 job market, and am available for
+                interviews. You can find
+                <a href="Hukill_CV.pdf" target="_blank" rel="noopener">
+                  my CV here.
+                </a>
               </p>
             </header>
           </div>
@@ -220,45 +313,77 @@
     </article>
 
     <!-- Research -->
-<!-- Research -->
-<article id="research" class="wrapper style1">
-  <div class="container">
-    <header>
-      <h2>Job Market Paper</h2>
-<p>
-  <strong>“Financing Human Capital With Student Aid”</strong><br>
-  <a href="Hukill_JMP.pdf" target="_blank" rel="noopener">PDF</a>
-</p>    </header>
-    <p>
-Student aid can expand college access or direct students toward
-higher-earning fields. I quantify this tradeoff in a life-cycle model in which
-individuals choose schooling, borrowing, repayment, and a major,
-trading earnings against field of study preferences. I evaluate reforms
-to credit access, tuition, grants, and repayment, financing each
-through taxes. Universal free tuition
-raises Bachelor attainment and welfare more than STEM-contingent free tuition,
-with consumption-equivalent gains of 4.1 and 3.4 percent.
-The field condition generates more STEM graduates, and the
-two policies produce similar earnings values of human capital.
-Access to loans remains valuable when tuition
-is free, and modest loan expansions improve completion with
-little additional public financing. Benefits also depend on
-the form of assistance: last-dollar tuition subsidies favor
-high-resource entrants in percentage welfare terms, whereas
-flat grants favor those with fewer family resources.      <h2>Working Papers</h2>
-        <p>
-    <strong>“The Marginal Propensity to Consume Out of Student Debt Relief”</strong><br>
-    <a href="The_Marginal_Propensity_to_Consume_Out_of_Student_Debt_Relief.pdf"
-       target="_blank"
-       rel="noopener">PDF</a>
-  </p>
-    </header>
-    <p>
-      <strong>Abstract:</strong>    I calculate the marginal propensity to consume student debt relief in a quantitative precautionary savings model. The fiscal expense of debt forgiveness is large and immediate, while the benefits free resources from recurring future debt payments, which reduces stimulus effects. By contrast, temporary forbearance that suspends current payments delivers immediate liquidity and produces MPCs close to those of cash transfers. Targeting a one-time transfer to indebted individuals rather than to all individuals raises the MPC by about 50 percent. The MPCs from debt relief are less than one third that of one time cash transfers, and less than one fifth that of cash transfers to indebted individuals, while forbearance nearly matches the effectiveness of transfers to indebted households.
-    </p>
+    <article id="research" class="wrapper style1">
+      <div class="container">
+        <section aria-labelledby="jmp-heading">
+          <header>
+            <h2 id="jmp-heading">Job Market Paper</h2>
+            <p class="paper-title">
+              “Financing Human Capital With Student Aid”
+            </p>
+            <p class="paper-links">
+              <a href="Hukill_JMP.pdf" target="_blank" rel="noopener">
+                PDF
+              </a>
+            </p>
+          </header>
 
-  </div>
-</article>
+          <p class="paper-abstract">
+            Student aid can expand college access or direct students toward
+            higher-earning fields. I quantify this tradeoff in a life-cycle
+            model in which individuals choose schooling, borrowing,
+            repayment, and a major, trading earnings against field of study
+            preferences. I evaluate reforms to credit access, tuition,
+            grants, and repayment, financing each through taxes. Universal
+            free tuition raises Bachelor attainment and welfare more than
+            STEM-contingent free tuition, with consumption-equivalent gains
+            of 4.1 and 3.4 percent. The field condition generates more STEM
+            graduates, and the two policies produce similar earnings values
+            of human capital. Access to loans remains valuable when tuition
+            is free, and modest loan expansions improve completion with
+            little additional public financing. Benefits also depend on
+            the form of assistance: last-dollar tuition subsidies favor
+            high-resource entrants in percentage welfare terms, whereas
+            flat grants favor those with fewer family resources.
+          </p>
+        </section>
+
+        <section class="working-papers" aria-labelledby="working-heading">
+          <header>
+            <h2 id="working-heading">Working Papers</h2>
+            <p class="paper-title">
+              “The Marginal Propensity to Consume Out of Student Debt Relief”
+            </p>
+            <p class="paper-links">
+              <a
+                href="The_Marginal_Propensity_to_Consume_Out_of_Student_Debt_Relief.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                PDF
+              </a>
+            </p>
+          </header>
+
+          <p class="paper-abstract">
+            <strong>Abstract:</strong>
+            I calculate the marginal propensity to consume student debt
+            relief in a quantitative precautionary savings model. The fiscal
+            expense of debt forgiveness is large and immediate, while the
+            benefits free resources from recurring future debt payments,
+            which reduces stimulus effects. By contrast, temporary
+            forbearance that suspends current payments delivers immediate
+            liquidity and produces MPCs close to those of cash transfers.
+            Targeting a one-time transfer to indebted individuals rather
+            than to all individuals raises the MPC by about 50 percent.
+            The MPCs from debt relief are less than one third that of one
+            time cash transfers, and less than one fifth that of cash
+            transfers to indebted individuals, while forbearance nearly
+            matches the effectiveness of transfers to indebted households.
+          </p>
+        </section>
+      </div>
+    </article>
 
     <!-- Contact -->
     <article id="contact" class="wrapper style3">
@@ -266,20 +391,23 @@ flat grants favor those with fewer family resources.      <h2>Working Papers</h2
         <header>
           <h2>Contact Information</h2>
         </header>
+
         <div class="contact-info">
-          jhukill@nd.edu<br>
-          University of Notre Dame<br>
-          Department of Economics<br>
-          3060 Jenkins-Nanovic Hall<br>
+          <a href="mailto:jhukill@nd.edu">jhukill@nd.edu</a><br />
+          University of Notre Dame<br />
+          Department of Economics<br />
+          3060 Jenkins-Nanovic Hall<br />
           Notre Dame, IN 46556 USA
         </div>
       </div>
     </article>
 
-		<!-- Floating contact pill overlay -->
-	<div class="overlay-root">
-	  <a class="contact-pill" href="mailto:jhukill@nd.edu">Email Jacob</a>
-	</div>
+    <!-- Floating email button -->
+    <div class="overlay-root">
+      <a class="contact-pill" href="mailto:jhukill@nd.edu">
+        Email Jacob
+      </a>
+    </div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
@@ -288,10 +416,5 @@ flat grants favor those with fewer family resources.      <h2>Working Papers</h2
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
-
-	  
   </body>
 </html>
-
-
