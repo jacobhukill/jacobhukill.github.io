@@ -134,7 +134,45 @@
 				}
 
 
-		
+		/* Reduce whitespace around the introduction */
+#top {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+/* Reduce the gap before the JMP */
+#research {
+  padding-top: 2rem;
+}
+
+/* Tighten spacing within the introduction */
+#top header {
+  margin-bottom: 0;
+}
+
+#top header h1 {
+  margin-bottom: 0.4em;
+}
+
+#top header p {
+  margin-bottom: 1rem;
+}
+
+#top header p:last-child {
+  margin-bottom: 0;
+}
+
+/* Replace the oversized mobile gap below the photo */
+@media screen and (max-width: 736px) {
+  #top {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  #top .image.fit {
+    margin-bottom: 1.5rem;
+  }
+}
     </style>
   </head>
   <body class="is-preload">
@@ -171,7 +209,6 @@
                 I am a PhD candidate at the University of Notre Dame. I am a macroeconomist with interests in household finance
                 and the economics of education. My research involves the financing of higher education. Please reach out with any inquiries.
               </p>
-              <p style="margin-bottom: 28px;"></p>
               <p>
                 I am on the 2026/2027 job market, and am available for interviews. You can find
                 <a href="Hukill_CV.pdf" target="_blank" rel="noopener">my CV here.</a>
